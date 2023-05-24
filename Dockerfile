@@ -34,10 +34,11 @@ RUN if [ "$TARGETARCH" = "amd64" ]; then \
       exit 1; \
     fi
 
-RUN pip install --no-cache-dir git+https://github.com/smallcloudai/refact-self-hosting.git
+RUN pip install --no-cache-dir git+https://github.com/coandco/refact-self-hosting.git
 
 ENV SERVER_WORKDIR=/workdir
 ENV SERVER_PORT=8008
+ENV SERVER_SCHEME=https
 EXPOSE $SERVER_PORT
 
 CMD ["python", "-m", "refact_self_hosting.watchdog", "--workdir", "/workdir"]
